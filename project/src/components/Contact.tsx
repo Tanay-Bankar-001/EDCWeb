@@ -155,18 +155,19 @@ const Contact: React.FC = () => {
             className="bg-white p-6 rounded-lg shadow-sm border border-gray-200 flex flex-col items-center"
           >
             <div
-              ref={carouselRef}
-              className="overflow-hidden w-full max-h-[300px] flex space-x-4 scroll-smooth snap-x snap-mandatory"
-            >
-              {images.map((src, index) => (
-                <img
-                  key={index}
-                  src={src}
-                  alt={`carousel-${index}`}
-                  className="h-[300px] w-[500px] object-cover rounded-lg shadow-md flex-shrink-0 snap-center"
-                />
-              ))}
-            </div>
+  ref={carouselRef}
+  className="overflow-hidden w-full max-w-full sm:max-w-3xl max-h-64 flex space-x-4 scroll-smooth snap-x snap-mandatory"
+>
+  {images.map((src, index) => (
+    <img
+      key={index}
+      src={src}
+      alt={`carousel-${index}`}
+      className="h-64 w-full max-w-xs sm:max-w-sm md:max-w-md object-cover rounded-lg shadow-md flex-shrink-0 snap-center"
+    />
+  ))}
+</div>
+
             <div className="flex space-x-2 mt-4">
   {images.map((_, index) => (
     <div
