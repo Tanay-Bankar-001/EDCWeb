@@ -20,7 +20,11 @@ const Navbar: React.FC = () => {
     const element = document.getElementById(id);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
-      setIsOpen(false);
+
+      // Delay closing the dropdown to allow scroll animation to complete
+      setTimeout(() => {
+        setIsOpen(false);
+      }, 300);
     }
   };
 
