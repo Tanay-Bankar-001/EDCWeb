@@ -26,12 +26,13 @@ const Navbar: React.FC = () => {
 
   return (
     <nav
-      className={`fixed w-full z-50 transition-all duration-300 ${
+      className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
         scrolled ? 'bg-white shadow-md py-2' : 'bg-transparent py-4'
       }`}
     >
       <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center">
+          {/* Logo */}
           <div className="flex items-center">
             <img
               src="https://i.ibb.co/fGzFNpW6/ed-cell-logo-removebg-preview.png"
@@ -54,7 +55,7 @@ const Navbar: React.FC = () => {
             ))}
           </div>
 
-          {/* Mobile Menu Button */}
+          {/* Mobile Menu Toggle */}
           <div className="md:hidden">
             <button
               onClick={() => setIsOpen(!isOpen)}
@@ -67,27 +68,26 @@ const Navbar: React.FC = () => {
       </div>
 
       {/* Mobile Menu */}
-      {isOpen && (
-        <motion.div
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: -20 }}
-          transition={{ duration: 0.3 }}
-          className="md:hidden bg-white shadow-lg overflow-hidden"
-        >
-          <div className="px-4 pt-4 pb-6 space-y-2">
-            {['home', 'about', 'events', 'initiatives', 'gallery', 'team', 'contact'].map((item) => (
-              <button
-                key={item}
-                onClick={() => scrollToSection(item)}
-                className="block w-full text-left px-3 py-2 text-black hover:bg-primary-50 hover:text-primary-600 rounded-md capitalize"
-              >
-                {item}
-              </button>
-            ))}
-          </div>
-        </motion.div>
-      )}
+      <motion.div
+        className={`md:hidden bg-white shadow-lg transition-all ${
+          isOpen ? 'max-h-screen' : 'max-h-0'
+        } overflow-hidden`}
+        initial={false}
+        animate={{ height: isOpen ? 'auto' : 0 }}
+        transition={{ duration: 0.3 }}
+      >
+        <div className="px-4 py-6 space-y-2">
+          {['home', 'about', 'events', 'initiatives', 'gallery', 'team', 'contact'].map((item) => (
+            <button
+              key={item}
+              onClick={() => scrollToSection(item)}
+              className="block w-full text-left px-3 py-2 text-black hover:bg-primary-50 hover:text-primary-600 rounded-md capitalize"
+            >
+              {item}
+            </button>
+          ))}
+        </div>
+      </motion.div>
     </nav>
   );
 };
