@@ -49,8 +49,8 @@ const Initiatives: React.FC = () => {
 
               {/* Content Card */}
               <div 
-                className={`w-5/12 group ${
-                  index % 2 === 0 ? 'mr-8' : 'ml-8'
+                className={`w-5/12 relative ${
+                  index % 2 === 0 ? 'mr-16 text-right' : 'ml-16 text-left'
                 }`}
               >
                 <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow border-l-4 border-accent-400">
@@ -62,16 +62,14 @@ const Initiatives: React.FC = () => {
                   </div>
                   <p className="text-primary-600">{initiative.description}</p>
                 </div>
-
-                {/* Connecting Line */}
-                <div 
-                  className={`absolute top-1/2 transform -translate-y-1/2 ${
-                    index % 2 === 0 
-                      ? 'right-0 w-8 h-1 bg-accent-400' 
-                      : 'left-0 w-8 h-1 bg-accent-400'
-                  }`}
-                />
               </div>
+
+              {/* Connecting Line */}
+              <div 
+                className={`absolute top-1/2 transform -translate-y-1/2 w-8 h-1 bg-accent-400 ${
+                  index % 2 === 0 ? 'right-full' : 'left-full'
+                }`}
+              />
             </motion.div>
           ))}
         </div>
