@@ -89,6 +89,35 @@ const Contact: React.FC = () => {
 
           </motion.div>
           
+
+          <motion.div
+  initial={{ opacity: 0, x: 20 }}
+  whileInView={{ opacity: 1, x: 0 }}
+  viewport={{ once: true }}
+  transition={{ duration: 0.5 }}
+  className="bg-white p-6 rounded-lg shadow-sm border border-gray-200"
+>
+  <h3 className="text-2xl font-semibold text-gray-900 mb-6"></h3>
+
+  <div className="overflow-x-auto flex space-x-4 scrollbar-hide">
+    {[
+      'https://i.ibb.co/xYVD0Lm/sample1.jpg',
+      'https://i.ibb.co/YDX0cwT/sample2.jpg',
+      'https://i.ibb.co/7psHyb5/sample3.jpg',
+      'https://i.ibb.co/sjSTGb1/sample4.jpg',
+      'https://i.ibb.co/gdMbYvg/sample5.jpg',
+    ].map((src, index) => (
+      <img
+        key={index}
+        src={src}
+        alt={`carousel-${index}`}
+        className="h-80 w-96 object-cover rounded-lg shadow-md flex-shrink-0"
+      />
+    ))}
+  </div>
+</motion.div>
+
+
           {/* <motion.div
             initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}

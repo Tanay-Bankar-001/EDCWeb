@@ -12,12 +12,15 @@ const Hero: React.FC = () => {
       <div 
         className="absolute inset-0 z-0" 
         style={{
-          backgroundImage: "url('https://i.ibb.co/JjXd2jQb/EDC-Team-Pic.jpg')",
+          backgroundImage: "url('https://raw.githubusercontent.com/Tanay-Bankar-001/EDCWeb/main/project/Images/EDC%20Team%20Pic.jpg')",
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
       >
-        <div className="absolute inset-0 bg-gradient-to-r from-primary-900/90 to-accent-900/80"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-blue-700 to-yellow-700 opacity-70"></div>
+
+{/* 
+        <div className="absolute inset-0 bg-gradient-to-r from-primary-900/90 to-accent-900/80"></div> */}
       </div>
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 relative z-10">

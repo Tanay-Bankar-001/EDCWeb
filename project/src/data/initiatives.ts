@@ -1,13 +1,13 @@
 import { Initiative } from '../types';
 
 export const initiatives: Initiative[] = [
-  {
-    id: 1,
-    title: "E-Summit",
-    description: "Annual flagship event featuring keynote speakers, workshops, and startup competitions. Brings together entrepreneurs, investors, and students for networking and learning.",
-    year: "2024",
-    icon: "🎯"
-  },
+  // {
+  //   id: 1,
+  //   title: "E-Summit",
+  //   description: "Annual flagship event featuring keynote speakers, workshops, and startup competitions. Brings together entrepreneurs, investors, and students for networking and learning.",
+  //   year: "2024",
+  //   icon: "🎯"
+  // },
   {
     id: 2,
     title: "Startup Mentorship Program",
@@ -17,7 +17,7 @@ export const initiatives: Initiative[] = [
   },
   {
     id: 3,
-    title: "Innovation Lab",
+    title: "Tinkering Lab",
     description: "Dedicated workspace for prototyping and development. Equipped with tools and resources for hardware and software projects.",
     year: "2022",
     icon: "🔬"
@@ -42,5 +42,19 @@ export const initiatives: Initiative[] = [
     description: "Partnership with MNIT Innovation and Incubation Centre. Provides infrastructure and funding support for student startups.",
     year: "2019",
     icon: "🚀"
+  },
+  {
+    id: 7,
+    title: "Ideation Workshops",
+    description: "Interactive sessions on finance, marketing, and real-world problem solving. Includes idea validation, mock interviews, and prototyping labs.",
+    year: "2024",
+    icon: "🧠"
+  },
+  {
+    id: 8,
+    title: "Mentorship Network",
+    description: "Connects students with alumni and industry leaders. Offers personalized guidance on startup ideas, interviews, and career planning.",
+    year: "2024",
+    icon: "🧑‍🏫"
   }
 ];

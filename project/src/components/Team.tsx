@@ -36,7 +36,8 @@ const Team: React.FC = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.1 * index }}
-              className="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow"
+              className="bg-white rounded-lg overflow-hidden shadow-md transition duration-300 transform hover:scale-105 hover:shadow-xl hover:glass"
+
             >
               <div className="aspect-w-1 aspect-h-1 relative overflow-hidden">
                 <img 
