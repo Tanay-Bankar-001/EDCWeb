@@ -49,15 +49,13 @@ const Initiatives: React.FC = () => {
 
               {/* Content Card */}
               <div
-                className={`relative w-5/12 ${
+                className={`relative w-full sm:w-5/12 ${
                   index % 2 === 0 ? 'pr-8 text-right' : 'pl-8 text-left'
                 }`}
               >
                 <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow border-l-4 border-accent-400">
                   <div className="flex items-center justify-between mb-2">
-                    <h3 className="text-xl font-semibold text-primary-800">
-                      {initiative.title}
-                    </h3>
+                    <h3 className="text-xl font-semibold text-primary-800">{initiative.title}</h3>
                     <span className="text-sm font-medium text-accent-600 bg-accent-50 px-2 py-1 rounded">
                       {initiative.year}
                     </span>
