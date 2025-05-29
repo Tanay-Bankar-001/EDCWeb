@@ -36,15 +36,18 @@ const Navbar: React.FC = () => {
     >
       <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center">
-          {/* Logo */}
-          <div className="flex items-center">
+          {/* Logo and Name */}
+          <button
+            onClick={() => scrollToSection('home')}
+            className="flex items-center focus:outline-none"
+          >
             <img
-              src="https://i.ibb.co/fGzFNpW6/ed-cell-logo-removebg-preview.png"
+              src="https://raw.githubusercontent.com/Tanay-Bankar-001/ImagesEDC/main/Logos/ed_cell_logo-removebg-preview.png"
               alt="ED Cell Logo"
               className="h-10 w-auto mr-2"
             />
             <span className="font-heading font-bold text-xl text-gray-900">ED Cell MNIT Jaipur</span>
-          </div>
+          </button>
 
           {/* Desktop Menu */}
           <div className="hidden md:flex space-x-8">
