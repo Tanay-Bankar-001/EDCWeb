@@ -33,22 +33,20 @@ const Navbar: React.FC = () => {
   return (
     <nav
       className={`fixed w-full z-50 transition-all duration-300 ${
-        scrolled
-          ? 'bg-white shadow-md py-2'
-          : 'bg-transparent py-4'
+        scrolled ? 'bg-white shadow-md py-2' : 'bg-transparent py-4'
       }`}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="w-full max-w-screen-md mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center">
           <div className="flex items-center">
             <img
               src="https://i.ibb.co/fGzFNpW6/ed-cell-logo-removebg-preview.png"
               alt="ED Cell Logo"
-              className="h-12 w-15 mr-2"
+              className="h-10 w-auto mr-2"
             />
             <span className="font-heading font-bold text-xl text-gray-900">ED Cell MNIT Jaipur</span>
           </div>
-          
+
           {/* Desktop Menu */}
           <div className="hidden md:flex space-x-8">
             {['home', 'about', 'events', 'initiatives', 'gallery', 'team', 'contact'].map((item) => (
@@ -61,7 +59,7 @@ const Navbar: React.FC = () => {
               </button>
             ))}
           </div>
-          
+
           {/* Mobile Menu Button */}
           <div className="md:hidden">
             <button
@@ -73,7 +71,7 @@ const Navbar: React.FC = () => {
           </div>
         </div>
       </div>
-      
+
       {/* Mobile Menu */}
       {isOpen && (
         <motion.div
@@ -84,7 +82,7 @@ const Navbar: React.FC = () => {
           className="md:hidden bg-white shadow-lg"
         >
           <div className="px-2 pt-2 pb-4 space-y-1 sm:px-3">
-            {['home', 'about', 'events', 'initiatives', 'gallery','team', 'contact'].map((item) => (
+            {['home', 'about', 'events', 'initiatives', 'gallery', 'team', 'contact'].map((item) => (
               <button
                 key={item}
                 onClick={() => scrollToSection(item)}
