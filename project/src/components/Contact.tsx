@@ -89,7 +89,7 @@ const Contact: React.FC = () => {
 
           </motion.div>
           
-          <motion.div
+          {/* <motion.div
             initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
@@ -154,7 +154,7 @@ const Contact: React.FC = () => {
                 Send Message
               </button>
             </form>
-          </motion.div>
+          </motion.div> */}
         </div>
       </div>
     </section>

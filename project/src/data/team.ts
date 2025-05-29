@@ -29,7 +29,7 @@ export const teamMembers: TeamMember[] = [
     id: 4,
     name: 'Ayush Agarwal',
     role: 'Overall Coordinator',
-    image: 'https://i.ibb.co/MxrxC0yt/Ayush-Agarwal-EDC.jpg',
+    image: 'https://drive.google.com/file/d/1k1cgJajHaNdbK_JiGKzQM_cIqpBejl_q/view?usp=sharing',
     linkedin: '',
     email: 'oc4@edc-mnit.org',
   }
