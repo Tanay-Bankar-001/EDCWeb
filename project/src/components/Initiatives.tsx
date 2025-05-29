@@ -66,11 +66,10 @@ const Initiatives: React.FC = () => {
 
               {/* Connecting Line */}
               <div
-                className={`absolute top-0 transform -translate-y-0.5 w-1 bg-accent-400 h-full ${
-                index % 2 === 0 ? 'left-1/2' : 'right-1/2'
+                className={`absolute top-1/2 transform -translate-y-1/2 w-8 h-1 bg-accent-400 ${
+                  index % 2 === 0 ? 'left-1/2' : 'right-1/2'
                 }`}
               />
-
             </motion.div>
           ))}
         </div>
