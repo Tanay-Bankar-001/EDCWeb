@@ -12,7 +12,7 @@ const Hero: React.FC = () => {
       <div 
         className="absolute inset-0 z-0" 
         style={{
-          backgroundImage: "url('https://raw.githubusercontent.com/Tanay-Bankar-001/EDCWeb/main/project/Images/EDC%20Team%20Pic.jpg')",
+          backgroundImage: "url('https://raw.githubusercontent.com/Tanay-Bankar-001/ImagesEDC/main/Images_Team/EDC%20Team%20Pic.jpg')",
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
