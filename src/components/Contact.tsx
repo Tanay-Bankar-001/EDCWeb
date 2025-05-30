@@ -179,21 +179,21 @@ const Contact: React.FC = () => {
           >
             {/* Left Arrow */}
             <button
-              aria-label="Previous"
-              onClick={handlePrev}
-              className="absolute left-2 top-1/2 -translate-y-1/2 bg-black bg-opacity-30 hover:bg-opacity-50 text-white rounded-full p-2 z-10"
-            >
-              <ChevronLeft size={24} />
-            </button>
+  aria-label="Previous"
+  onClick={handlePrev}
+  className="absolute left-2 top-1/2 -translate-y-1/2 bg-black bg-opacity-30 hover:bg-opacity-50 text-white rounded-full p-2 z-10"
+>
+  <ChevronLeft size={24} />
+</button>
 
-            {/* Right Arrow */}
-            <button
-              aria-label="Next"
-              onClick={handleNext}
-              className="absolute right-2 top-1/2 -translate-y-1/2 bg-black bg-opacity-30 hover:bg-opacity-50 text-white rounded-full p-2 z-10"
-            >
-              <ChevronRight size={24} />
-            </button>
+<button
+  aria-label="Next"
+  onClick={handleNext}
+  className="absolute right-2 top-1/2 -translate-y-1/2 bg-black bg-opacity-30 hover:bg-opacity-50 text-white rounded-full p-2 z-10"
+>
+  <ChevronRight size={24} />
+</button>
+
 
             <div
               ref={carouselRef}
