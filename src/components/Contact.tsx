@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
-import { Mail, MapPin, Phone, Instagram, Linkedin } from 'lucide-react';
+import { Mail, MapPin, Phone, Instagram, Linkedin, ChevronLeft, ChevronRight } from 'lucide-react';
 
 const Contact: React.FC = () => {
   const carouselRef = useRef<HTMLDivElement>(null);
@@ -14,47 +14,70 @@ const Contact: React.FC = () => {
     'https://raw.githubusercontent.com/Tanay-Bankar-001/ImagesEDC/main/Images_Gallery/Finance%20Workshop%20Quintessence.jpg',
   ];
 
-  const logoUrl = 'https://raw.githubusercontent.com/Tanay-Bankar-001/ImagesEDC/main/Logos/ed_cell_logo-removebg-preview.png'; // Replace with your logo URL
+  const logoUrl =
+    'https://raw.githubusercontent.com/Tanay-Bankar-001/ImagesEDC/main/Logos/ed_cell_logo-removebg-preview.png';
+
+  // Scroll amount per image (including margin)
+  const getScrollAmount = () => {
+    if (!carouselRef.current) return 0;
+    const img = carouselRef.current.querySelector('img');
+    if (!img) return 0;
+    // image width + margin-right (space-x-4 = 1rem = 16px)
+    return img.clientWidth + 16;
+  };
 
   useEffect(() => {
-  const interval = setInterval(() => {
-    if (carouselRef.current) {
-      const scrollAmount = carouselRef.current.offsetWidth;
-      const maxScrollLeft = carouselRef.current.scrollWidth - carouselRef.current.offsetWidth;
+    const interval = setInterval(() => {
+      if (carouselRef.current) {
+        const scrollAmount = getScrollAmount();
+        const maxScrollLeft = carouselRef.current.scrollWidth - carouselRef.current.clientWidth;
 
-      if (Math.ceil(carouselRef.current.scrollLeft) >= maxScrollLeft) {
-        // Reset scroll position to the start
-        carouselRef.current.scrollTo({ left: 0, behavior: 'smooth' });
-        setActiveIndex(0);
-      } else {
-        // Scroll to the next image
-        carouselRef.current.scrollBy({ left: scrollAmount, behavior: 'smooth' });
-        setActiveIndex((prevIndex) => (prevIndex + 1) % images.length);
+        if (Math.ceil(carouselRef.current.scrollLeft) >= maxScrollLeft) {
+          carouselRef.current.scrollTo({ left: 0, behavior: 'smooth' });
+          setActiveIndex(0);
+        } else {
+          carouselRef.current.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+          setActiveIndex((prev) => (prev + 1) % images.length);
+        }
       }
-    }
-  }, 3500);
+    }, 3500);
 
-  return () => clearInterval(interval);
-}, [images.length]);
-
+    return () => clearInterval(interval);
+  }, [images.length]);
 
   useEffect(() => {
     const handleScroll = () => {
       if (carouselRef.current) {
         const scrollLeft = carouselRef.current.scrollLeft;
-        const width = carouselRef.current.offsetWidth;
-        const index = Math.round(scrollLeft / width);
+        const scrollAmount = getScrollAmount();
+        const index = Math.round(scrollLeft / scrollAmount);
         setActiveIndex(index);
       }
     };
 
     const ref = carouselRef.current;
     ref?.addEventListener('scroll', handleScroll);
-
-    return () => {
-      ref?.removeEventListener('scroll', handleScroll);
-    };
+    return () => ref?.removeEventListener('scroll', handleScroll);
   }, []);
+
+  const scrollToIndex = (index: number) => {
+    if (!carouselRef.current) return;
+    const scrollAmount = getScrollAmount();
+    carouselRef.current.scrollTo({ left: scrollAmount * index, behavior: 'smooth' });
+    setActiveIndex(index);
+  };
+
+  const handlePrev = () => {
+    let newIndex = activeIndex - 1;
+    if (newIndex < 0) newIndex = images.length - 1;
+    scrollToIndex(newIndex);
+  };
+
+  const handleNext = () => {
+    let newIndex = activeIndex + 1;
+    if (newIndex >= images.length) newIndex = 0;
+    scrollToIndex(newIndex);
+  };
 
   return (
     <section id="contact" className="py-20 bg-white">
@@ -152,45 +175,53 @@ const Contact: React.FC = () => {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="bg-white p-6 rounded-lg shadow-sm border border-gray-200 flex flex-col items-center"
+            className="bg-white p-6 rounded-lg shadow-sm border border-gray-200 flex flex-col items-center relative"
           >
+            {/* Left Arrow */}
+            <button
+              aria-label="Previous"
+              onClick={handlePrev}
+              className="absolute left-2 top-1/2 -translate-y-1/2 bg-black bg-opacity-30 hover:bg-opacity-50 text-white rounded-full p-2 z-10"
+            >
+              <ChevronLeft size={24} />
+            </button>
+
+            {/* Right Arrow */}
+            <button
+              aria-label="Next"
+              onClick={handleNext}
+              className="absolute right-2 top-1/2 -translate-y-1/2 bg-black bg-opacity-30 hover:bg-opacity-50 text-white rounded-full p-2 z-10"
+            >
+              <ChevronRight size={24} />
+            </button>
+
             <div
-  ref={carouselRef}
-  className="overflow-hidden w-full max-w-full sm:max-w-3xl max-h-64 flex space-x-4 scroll-smooth snap-x snap-mandatory"
->
-  {images.map((src, index) => (
-    <img
-      key={index}
-      src={src}
-      alt={`carousel-${index}`}
-      className="h-64 w-full max-w-xs sm:max-w-sm md:max-w-md object-cover rounded-lg shadow-md flex-shrink-0 snap-center"
-    />
-  ))}
-</div>
+              ref={carouselRef}
+              className="overflow-hidden w-full max-w-full sm:max-w-3xl max-h-64 flex space-x-4 scroll-smooth snap-x snap-mandatory"
+            >
+              {images.map((src, index) => (
+                <img
+                  key={index}
+                  src={src}
+                  alt={`carousel-${index}`}
+                  className="h-64 w-full max-w-xs sm:max-w-sm md:max-w-md object-cover rounded-lg shadow-md flex-shrink-0 snap-center"
+                />
+              ))}
+            </div>
 
             <div className="flex space-x-2 mt-4">
-  {images.map((_, index) => (
-    <div
-      key={index}
-      className={`h-2 w-2 rounded-full cursor-pointer ${
-        index === activeIndex ? 'bg-primary-600' : 'bg-gray-300'
-      } transition-colors`}
-      onClick={() => {
-        if (carouselRef.current) {
-          const scrollAmount = carouselRef.current.offsetWidth * index;
-          carouselRef.current.scrollTo({ left: scrollAmount, behavior: 'smooth' });
-          setActiveIndex(index);
-        }
-      }}
-    ></div>
-  ))}
-</div>
+              {images.map((_, index) => (
+                <div
+                  key={index}
+                  className={`h-2 w-2 rounded-full cursor-pointer ${
+                    index === activeIndex ? 'bg-primary-600' : 'bg-gray-300'
+                  } transition-colors`}
+                  onClick={() => scrollToIndex(index)}
+                ></div>
+              ))}
+            </div>
 
-            <img
-              src={logoUrl}
-              alt="EDC Logo"
-              className="mt-6 h-16 w-auto object-contain"
-            />
+            <img src={logoUrl} alt="EDC Logo" className="mt-6 h-16 w-auto object-contain" />
           </motion.div>
         </div>
       </div>
