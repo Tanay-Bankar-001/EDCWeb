@@ -89,16 +89,17 @@ const Hero: React.FC = () => {
         d="M0,128L48,144C96,160,192,192,288,186.7C384,181,480,139,576,138.7C672,139,768,181,864,170.7C960,160,1056,96,1152,80C1248,64,1344,96,1392,112L1440,128L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
       ></path>
     </svg>
-    <div 
-      className="absolute left-1/2 transform -translate-x-1/2"
-      style={{ bottom: '-20px' }}
-    >
-      <img
-        src="https://i.ibb.co/fGzFNpW6/ed-cell-logo-removebg-preview.png"
-        alt="ED Cell Logo"
-        className="w-48 h-48 object-contain"
-      />
-    </div>
+    <div
+  className="absolute left-1/2 transform -translate-x-1/2"
+  style={{ bottom: '0px' }} // Adjust the value as needed
+>
+  <img
+    src="https://raw.githubusercontent.com/Tanay-Bankar-001/ImagesEDC/main/Logos/ed_cell_logo-removebg-preview.png"
+    alt="ED Cell Logo"
+    className="w-48 h-auto object-contain"
+  />
+</div>
+
   </div>
 </div>
 

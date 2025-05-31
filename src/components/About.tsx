@@ -58,7 +58,14 @@ const About: React.FC = () => {
   };
 
   return (
-    <section id="about" className="py-20 bg-gradient-to-b from-white to-primary-50">
+   <section
+  id="about"
+  className="py-20"
+  style={{
+    background: "linear-gradient(to bottom, #FAFBFF, var(--tw-gradient-to))",
+  }}
+>
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center">
           <motion.h2
