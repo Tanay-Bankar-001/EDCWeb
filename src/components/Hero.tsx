@@ -17,10 +17,7 @@ const Hero: React.FC = () => {
           backgroundPosition: "center",
         }}
       >
-        <div className="absolute inset-0 bg-gradient-to-r from-blue-700 to-yellow-700 opacity-70"></div>
-
-{/* 
-        <div className="absolute inset-0 bg-gradient-to-r from-primary-900/90 to-accent-900/80"></div> */}
+        <div className="absolute inset-0 bg-gradient-to-r from-primary-900/90 to-accent-900/80"></div>
       </div>
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 relative z-10">
@@ -29,36 +26,37 @@ const Hero: React.FC = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="font-heading text-3xl sm:text-4xl md:text-5xl font-bold text-white leading-tight"
+            className="font-heading text-4xl sm:text-5xl md:text-6xl font-bold text-white leading-tight"
           >
-            Entrepreneurship Development Cell, MNIT Jaipur
+            Entrepreneurship Development Cell
+            <span className="block text-accent-400 mt-2">MNIT Jaipur</span>
           </motion.h1>
           
           <motion.p 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="mt-6 text-xl text-gray-200 max-w-3xl"
+            className="mt-8 text-xl text-gray-200 max-w-3xl leading-relaxed"
           >
-            The Entrepreneurship Development Cell at MNIT Jaipur empowers students to transform innovative ideas into successful ventures through mentorship, resources, and opportunities.
+            Empowering students to transform innovative ideas into successful ventures through mentorship, resources, and opportunities.
           </motion.p>
           
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
-            className="mt-10 flex flex-col sm:flex-row justify-center md:justify-start space-y-4 sm:space-y-0 sm:space-x-4"
+            className="mt-10 flex flex-col sm:flex-row justify-center md:justify-start space-y-4 sm:space-y-0 sm:space-x-6"
           >
             <button 
               onClick={() => document.getElementById('events')?.scrollIntoView({ behavior: 'smooth' })}
-              className="px-8 py-3 bg-primary-600 text-white font-medium rounded-md hover:bg-primary-700 transition-colors flex items-center justify-center"
+              className="btn-primary group"
             >
               Upcoming Events
-              <ArrowRight size={18} className="ml-2" />
+              <ArrowRight size={18} className="ml-2 inline-block transition-transform group-hover:translate-x-1" />
             </button>
             <button 
               onClick={() => document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' })}
-              className="px-8 py-3 bg-white text-primary-800 font-medium rounded-md hover:bg-gray-100 transition-colors"
+              className="btn-secondary"
             >
               Learn More
             </button>
@@ -66,25 +64,20 @@ const Hero: React.FC = () => {
         </div>
       </div>
       
-      {/* Decorative Element with Logo */}
+      {/* Decorative Wave */}
       <div className="absolute bottom-0 left-0 right-0">
-        <div className="relative">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
-            <path 
-              fill="#ffffff" 
-              fillOpacity="1" 
-              d="M0,128L48,144C96,160,192,192,288,186.7C384,181,480,139,576,138.7C672,139,768,181,864,170.7C960,160,1056,96,1152,80C1248,64,1344,96,1392,112L1440,128L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
-            ></path>
-          </svg>
-          <div className="absolute left-1/2 transform -translate-x-1/2"
-  style={{ bottom: '-20px' }}
->
-            <img
-              src="https://i.ibb.co/fGzFNpW6/ed-cell-logo-removebg-preview.png"
-              alt="ED Cell Logo"
-              className="w-48 h-48 object-contain"
-            />
-          </div>
+        <svg className="w-full h-auto" viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M0 120L60 110C120 100 240 80 360 70C480 60 600 60 720 65C840 70 960 80 1080 85C1200 90 1320 90 1380 90L1440 90V120H1380C1320 120 1200 120 1080 120C960 120 840 120 720 120C600 120 480 120 360 120C240 120 120 120 60 120H0V120Z" fill="white"/>
+        </svg>
+        <div className="absolute left-1/2 transform -translate-x-1/2 -translate-y-full">
+          <motion.img
+            initial={{ y: 20, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ duration: 0.6, delay: 0.6 }}
+            src="https://raw.githubusercontent.com/Tanay-Bankar-001/ImagesEDC/main/Logos/ed_cell_logo-removebg-preview.png"
+            alt="ED Cell Logo"
+            className="w-32 h-32 object-contain"
+          />
         </div>
       </div>
     </section>
