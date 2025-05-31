@@ -1,15 +1,13 @@
-// components/SplashScreen.jsx
-import { motion, AnimatePresence } from "framer-motion";
-import { useEffect, useState } from "react";
-import logo from "https://i.ibb.co/fGzFNpW6/ed-cell-logo-removebg-preview.png"; // replace with your actual logo path
+import React, { useEffect, useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 
-export default function SplashScreen() {
+const SplashScreen: React.FC = () => {
   const [isVisible, setIsVisible] = useState(true);
 
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsVisible(false);
-    }, 3000); // duration before main content shows
+    }, 2500);
 
     return () => clearTimeout(timer);
   }, []);
@@ -18,22 +16,48 @@ export default function SplashScreen() {
     <AnimatePresence>
       {isVisible && (
         <motion.div
-          className="fixed inset-0 bg-white z-50 flex items-center justify-center"
           initial={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          transition={{ duration: 1 }}
+          transition={{ duration: 0.5 }}
+          className="fixed inset-0 bg-white z-50 flex items-center justify-center"
         >
-          <motion.img
-            src={logo}
-            alt="EDCELL Logo"
-            initial={{ scale: 0, opacity: 0 }}
-            animate={{ scale: 1.2, opacity: 1 }}
-            exit={{ scale: 0.9, opacity: 0 }}
-            transition={{ duration: 2, ease: "easeInOut" }}
-            className="w-40 h-40"
-          />
+          <motion.div
+            initial={{ scale: 0.5, rotateY: -180 }}
+            animate={{ 
+              scale: 1,
+              rotateY: 0,
+              transition: {
+                duration: 1.5,
+                ease: "easeOut"
+              }
+            }}
+            exit={{ 
+              scale: 0.5,
+              rotateY: 180,
+              transition: {
+                duration: 0.5
+              }
+            }}
+            className="relative w-48 h-48 perspective-1000"
+          >
+            <motion.img
+              src="https://raw.githubusercontent.com/Tanay-Bankar-001/ImagesEDC/main/Logos/ed_cell_logo-removebg-preview.png"
+              alt="EDC Logo"
+              className="w-full h-full object-contain"
+              animate={{
+                y: [0, -10, 0],
+                transition: {
+                  duration: 2,
+                  repeat: Infinity,
+                  ease: "easeInOut"
+                }
+              }}
+            />
+          </motion.div>
         </motion.div>
       )}
     </AnimatePresence>
   );
-}
+};
+
+export default SplashScreen;

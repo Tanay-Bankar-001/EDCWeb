@@ -8,15 +8,16 @@ import Gallery from './components/Gallery';
 import Team from './components/Team';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
+import SplashScreen from './components/SplashScreen';
 
 function App() {
-  // Update the page title
   useEffect(() => {
     document.title = 'EDC MNIT Jaipur | Entrepreneurship Development Cell';
   }, []);
 
   return (
     <div className="font-sans">
+      <SplashScreen />
       <Navbar />
       <Hero />
       <About />
