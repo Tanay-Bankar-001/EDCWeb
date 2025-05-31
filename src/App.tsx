@@ -18,7 +18,7 @@ function App() {
 
     const timer = setTimeout(() => {
       setShowContent(true);
-    }, 2000); // Matches the SplashScreen duration
+    }, 2500); // Matches the SplashScreen duration
 
     return () => clearTimeout(timer);
   }, []);
