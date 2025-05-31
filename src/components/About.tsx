@@ -68,7 +68,7 @@ const About: React.FC = () => {
             transition={{ duration: 0.5 }}
             className="section-header"
           >
-            About ED Cell MNIT
+            About ED Cell
           </motion.h2>
           <motion.p 
             initial={{ opacity: 0, y: 20 }}
