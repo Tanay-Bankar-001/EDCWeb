@@ -29,7 +29,7 @@ export default function SplashScreen() {
           <motion.img
             src={logo}
             alt="EDCELL Logo"
-            className="w-40 h-40 mb-4 animate-pulse"
+            className="w-60 h-auto mb-4 animate-pulse"
             initial={{ scale: 0.8, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             transition={{ duration: 1.5, ease: "easeOut" }}
