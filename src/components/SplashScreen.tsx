@@ -1,8 +1,6 @@
-// components/SplashScreen.jsx
 import { motion, AnimatePresence } from "framer-motion";
 import { useEffect, useState } from "react";
 
-// Replace this with your actual image link
 const logo = "https://raw.githubusercontent.com/Tanay-Bankar-001/ImagesEDC/main/Logos/ed_cell_logo-removebg-preview.png";
 
 export default function SplashScreen() {
@@ -11,8 +9,7 @@ export default function SplashScreen() {
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsVisible(false);
-    }, 3000); // duration before main content shows
-
+    }, 2000);
     return () => clearTimeout(timer);
   }, []);
 
@@ -29,7 +26,7 @@ export default function SplashScreen() {
           <motion.img
             src={logo}
             alt="EDCELL Logo"
-            className="w-60 h-auto mb-4 animate-pulse"
+            className="w-60 h-auto mb-4 pulse-animation"
             initial={{ scale: 0.8, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             transition={{ duration: 1.5, ease: "easeOut" }}

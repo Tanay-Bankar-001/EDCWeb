@@ -37,3 +37,32 @@ html {
   transform: translateY(-5px);
   box-shadow: 0 12px 20px rgba(0, 0, 0, 0.1);
 }
+
+@keyframes glow {
+  0% {
+    filter: drop-shadow(0 0 10px #00bcd4);
+  }
+  50% {
+    filter: drop-shadow(0 0 20px #00bcd4);
+  }
+  100% {
+    filter: drop-shadow(0 0 10px #00bcd4);
+  }
+}
+
+.glow {
+  animation: glow 2s infinite ease-in-out;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.08);
+  }
+}
+
+.pulse-animation {
+  animation: pulse 2s ease-in-out infinite;
+}
