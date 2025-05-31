@@ -28,15 +28,15 @@ const Hero: React.FC = () => {
             transition={{ duration: 0.6 }}
             className="font-heading text-4xl sm:text-5xl md:text-6xl font-bold text-white leading-tight"
           >
-            Entrepreneurship Development Cell
-            <span className="block text-accent-400 mt-2">MNIT Jaipur</span>
+            Entrepreneurship Development Cell MNIT<br />
+            <span className="text-accent-400">Empowering Innovation</span>
           </motion.h1>
           
           <motion.p 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="mt-8 text-xl text-gray-200 max-w-3xl leading-relaxed"
+            className="mt-8 text-lg sm:text-xl text-gray-200 max-w-3xl leading-relaxed"
           >
             Empowering students to transform innovative ideas into successful ventures through mentorship, resources, and opportunities.
           </motion.p>
@@ -45,7 +45,7 @@ const Hero: React.FC = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
-            className="mt-10 flex flex-col sm:flex-row justify-center md:justify-start space-y-4 sm:space-y-0 sm:space-x-6"
+            className="mt-10 flex flex-wrap justify-center md:justify-start gap-4"
           >
             <button 
               onClick={() => document.getElementById('events')?.scrollIntoView({ behavior: 'smooth' })}

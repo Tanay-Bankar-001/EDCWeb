@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import About from './components/About';
@@ -11,22 +11,34 @@ import Footer from './components/Footer';
 import SplashScreen from './components/SplashScreen';
 
 function App() {
+  const [showContent, setShowContent] = useState(false);
+
   useEffect(() => {
     document.title = 'EDC MNIT Jaipur | Entrepreneurship Development Cell';
+
+    const timer = setTimeout(() => {
+      setShowContent(true);
+    }, 3000); // Matches the SplashScreen duration
+
+    return () => clearTimeout(timer);
   }, []);
 
   return (
     <div className="font-sans">
-      <SplashScreen />
-      <Navbar />
-      <Hero />
-      <About />
-      <Events />
-      <Initiatives />
-      <Gallery />
-      <Team />
-      <Contact />
-      <Footer />
+      {!showContent && <SplashScreen />}
+      {showContent && (
+        <>
+          <Navbar />
+          <Hero />
+          <About />
+          <Events />
+          <Initiatives />
+          <Gallery />
+          <Team />
+          <Contact />
+          <Footer />
+        </>
+      )}
     </div>
   );
 }
